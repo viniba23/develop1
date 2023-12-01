@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class RegisterComponent {
 
+  isVisible = true;
+
+  saveType() {
+    
+      this.isVisible = false;
+    
+  }
+
+  close(){
+    this.isVisible=false;
+  }
+
+  
+
 }
