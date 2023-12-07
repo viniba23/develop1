@@ -6,7 +6,7 @@
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label">Name</label>
                             <div class="col-md-5">
-                              <input type="text" class="form-control" formControlName="" >
+                              <input type="text" class="form-control" >
                             </div>
                         </div>                       
                     </div>
@@ -14,7 +14,7 @@
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label">Transaction ID</label>
                             <div class="col-md-5">
-                              <input type="text" class="form-control" formControlName="" >
+                              <input type="text" class="form-control" >
                             </div>
                         </div>                       
                     </div>
@@ -22,7 +22,7 @@
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label">Phone Number</label>
                             <div class="col-md-5">
-                              <input type="text" class="form-control" formControlName="" >
+                              <input type="text" class="form-control"  >
                             </div>
                         </div>                       
                     </div>
@@ -30,7 +30,7 @@
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label">E-Mail Address</label>
                             <div class="col-md-5">
-                              <input type="text" class="form-control" formControlName="" >
+                              <input type="text" class="form-control"  >
                             </div>
                         </div>                       
                     </div>
@@ -38,7 +38,7 @@
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label">Catagory</label>
                             <div class="col-md-5">
-                              <input type="text" class="form-control" formControlName="" >
+                              <input type="text" class="form-control"  >
                             </div>
                         </div>                       
                     </div>
@@ -46,7 +46,7 @@
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label">Age</label>
                             <div class="col-md-5">
-                              <input type="text" class="form-control" formControlName="" >
+                              <input type="text" class="form-control"  >
                             </div>
                         </div>                       
                     </div>
@@ -60,33 +60,136 @@
 
 
 
-        <div [style.display]="isVisible ? 'block' : 'none'" class="modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">           
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-center"></h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="close()"></button>
+        <!-- <div [style.display]="isVisible ? 'block' : 'none'" class="modal fixed-modal-position" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title text-center"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="close()"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row mt-3 py-3">
+                    <div class="col-md-4">
+                      <label>Enter Marks</label>
+                      <input type="text" class="form-control" />
                     </div>
-                    <div class="modal-body">
-                        <div class="row mt-3">
-                            <div class="col-12 ">
-                                <label > Last Name</label>
-                                <input type="text" class="form-control"  formControlName="" >                        
-                            </div> 
-                            <div class="col-12 mt-3">
-                                <label >Transaction ID</label>
-                                <input type="text" class="form-control"  formControlName="" >   
-                            </div>
-                        </div>                     
+                    <div class="col-md-4 mt-3 px-5 py-3 ">
+                      <input type="checkbox" class="custom-checkbox"  value="yes" [checked]="isChecked1" />
                     </div>
-                    <div class="modal-footer mt-4 ">     
-                        <div class="btn mx-auto">
-                            <button type="button" class="btn btn-success " (click)="saveType()">save</button>
-                        </div>                      
+                    <div class="col-md-4 mt-3 px-5 py-3">
+                      <input type="checkbox" class="custom-checkbox" value="no"  [checked]="isChecked2" />
                     </div>
-                </div> 
+                  </div>
+                  <div class="row mt-3 py-3">
+                    <div class="col-md-4 ">
+                      <label>Enter Marks</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="col-md-4 mt-3  px-5 py-3 align-items-center justify-content-center">
+                      <input type="checkbox" class="custom-checkbox" [checked]="isChecked1" />
+                    </div>
+                    <div class="col-md-4 mt-3 px-5 py-3 ">
+                      <input type="checkbox" class="custom-checkbox" [checked]="isChecked2" />
+                    </div>
+                  </div>
+                  <div class="row mt-3 py-3">
+                    <div class="col-md-4">
+                      <label>Final</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer mt-4 ">
+                  <div class="btn mx-auto">
+                    <button type="button" class="btn btn-success" (click)="saveType()">Save</button>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
+          </div> -->
+
+          <div [style.display]="isVisible ? 'block' : 'none'" class="modal fixed-modal-position" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title text-center"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="close()"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row mt-2 py-3">
+                    <div class="col-md-6">
+                      <label>Enter Your Marks</label>
+                      <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-3 mt-3 px-2 py-3">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                      <label class="px-2">Selected</label>
+                    </div>
+                    <div class="col-md-3 mt-3 px-2 py-3">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                      <label class="px-2">Rejected</label>
+                    </div>
+                  </div>
+          
+                  <div class="row mt-3">
+                    <div class="col-md-6">
+                      <label>Enter Your Marks</label>
+                      <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-3 mt-3 px-2 py-3">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                      <label class="px-2">Selected</label>
+                    </div>
+                    <div class="col-md-3 mt-3 px-2 py-3">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                      <label class="px-2">Rejected</label>
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col-md-6">
+                      <label>Enter Your Marks</label>
+                      <input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-3 mt-3 px-2 py-3">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                      <label class="px-2">Selected</label>
+                    </div>
+                    <div class="col-md-3 mt-3 px-2 py-3">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                      <label class="px-2">Rejected</label>
+                    </div>
+                  </div>
+          
+                  <div class="row mt-3 py-3">
+                    <div class="col-md-6">
+                      <label>Enter Your Final Marks</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer mt-4">
+                  <div class="btn mx-auto">
+                    <button type="button" class="btn btn-success" (click)="saveType()">Save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
  </div>
     
 

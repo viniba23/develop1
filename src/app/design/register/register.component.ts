@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class RegisterComponent {
   isVisible = true;
+  isChecked1: boolean = true; 
+  isChecked2: boolean = false;
 
     saveType() {      
         this.isVisible = false;      

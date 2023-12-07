@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <form [formGroup]="login">
+    <form [formGroup]="login" (ngSubmit)="onSubmit()">
         <div class="row justify-content-center align-items-center h-100">
             <div class="col-md-4"></div>
             <div class="col-md-4 mt-5">
@@ -10,17 +10,29 @@
                                 <h1>login</h1>                                                      
                             </div>
                             <div class="col-md-12 ">                                    
-                                <label for="exampleFormControlInput1" class="form-label">User Name <strong>:</strong></label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">                                     
+                                <label class="form-label">User Name <strong>:</strong></label>
+                                <input type="text" class="form-control" formControlName="userName" placeholder="Enter the username"> 
+                                <span *ngIf="loginError.userName" class="error-text">{{loginError.userName}}</span>                                    
                             </div>
-                            <div class="col-md-12 mt-4">                               
-                                <label for="exampleFormControlInput1" class="form-label">Password <strong>:</strong></label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter the password">                                    
-                            </div>  
+                            <div class="col-md-12 mt-4">
+                                <label class="form-label">Password <strong>:</strong></label>
+                                <div class="input-group">
+                                    <input [type]="isPasswordVisible ? 'text' :'passWord'" class="form-control" formControlName="passWord"#passwordInput/>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" (click)="togglePasswordVisibility()">
+                                            <i class="fas" [ngClass]="{'fa-eye': !isPasswordVisible, 'fa-eye-slash': isPasswordVisible}"></i>
+                                        </span>
+                                        
+                                    </div>
+                                </div>
+                                <span *ngIf="loginError.passWord" class="error-text">{{loginError.passWord}}</span>
+                            </div>
+                            
+                            
                         </div>                                                           
                         <div class="row mt-3">
                             <div class="col-md-12 text-center py-4">
-                                <button type="text" (click)="dashboard()" class="btn btn-success">save</button>
+                                <button type="submit" class="btn btn-success">save</button>
                             </div>
                         </div>
                         <div class="row">

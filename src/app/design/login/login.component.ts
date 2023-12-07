@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators} from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,21 +9,59 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
+  fieldTextType: boolean =false;
+  isPasswordVisible: boolean =false  
 
   constructor(private router: Router) {
 
   }
-  login = new FormGroup({
-    userName: new FormControl('',[Validators.required, Validators.nullValidator]),
-    password: new FormControl('',[Validators.required, Validators.nullValidator]),
+  login = new UntypedFormGroup({
+    userName: new UntypedFormControl('',[Validators.required, Validators.nullValidator]),
+    passWord: new UntypedFormControl('',[Validators.required, Validators.nullValidator]),
 
   })
+
+  public loginError ={
+        userName: '',
+        passWord: '',
+  }
+
+
+  onSubmit(){
+      this.formValidation("Active");
+  }
+   
+  formValidation(status:String){
+        this.loginError.userName="";
+        
+
+        let hasError = false;
+
+        if(this.login.get('userName')?.invalid){
+          this.loginError.userName= "Enter the username";
+          hasError = true;
+        }
+
+        if(this.login.get('passWord')?.invalid){
+            this.loginError.passWord= "Enter the Valid Password";
+            hasError = true;
+        }
+
+
+        if(!hasError) {
+            this.saveLogin(status);
+        }
+  }
+
+
+  saveLogin(status : String){}
+
   register(){
     this.router.navigate(['/register'])
   }
-
-  dashboard(){
-    this.router.navigate(['/dash'])
-  }
+  
+  togglePasswordVisibility() {
+    this.isPasswordVisible = !this.isPasswordVisible;
+}
 
 }

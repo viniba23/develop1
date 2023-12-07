@@ -1,1 +1,4 @@
-export interface Login{}
+export interface Login{
+    userName: String;
+    passWord: String;
+}
