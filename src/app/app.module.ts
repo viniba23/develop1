@@ -7,6 +7,7 @@ import { StudentsComponent } from './design/students/students.component';
 import { DashboardComponent } from './design/dashboard/dashboard.component';
 import { RegisterComponent } from './design/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {TableCheckingComponent} from './design/table-checking/table-checking.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     StudentsComponent,
     DashboardComponent,
     RegisterComponent,
+    TableCheckingComponent,
 
   ],
   imports: [

@@ -33,12 +33,12 @@ export class LoginComponent {
    
   formValidation(status:String){
         this.loginError.userName="";
-        
+        this.loginError.passWord="";
 
         let hasError = false;
 
         if(this.login.get('userName')?.invalid){
-          this.loginError.userName= "Enter the username";
+          this.loginError.userName= "Enter the UserName";
           hasError = true;
         }
 

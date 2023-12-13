@@ -3,36 +3,34 @@
         <div class="row justify-content-center align-items-center h-100">
             <div class="col-md-4"></div>
             <div class="col-md-4 mt-5">
-                <div class="card bg-secondary mt-5">
+                <div class="card ngmt-5">
                     <div class="card-body">
                         <div class="row" >
                             <div class="col-md-12 mb-3 text-center">
-                                <h1>login</h1>                                                      
+                                <h1>Login</h1>                                                      
                             </div>
                             <div class="col-md-12 ">                                    
                                 <label class="form-label">User Name <strong>:</strong></label>
-                                <input type="text" class="form-control " formControlName="userName" placeholder="Enter the username"> 
+                                <input type="text" class="form-control " formControlName="userName" placeholder="Enter the UserName"> 
                                 <span *ngIf="loginError.userName" class="error-text">{{loginError.userName}}</span>                                    
                             </div>
                             <div class="col-md-12 mt-4">
                                 <label class="form-label">Password <strong>:</strong></label>
                                 <div class="input-group">
-                                    <input [type]="isPasswordVisible ? 'text' :'passWord'" class="form-control  rounded-0"  formControlName="passWord"#passwordInput/>
+                                    <input [type]="isPasswordVisible ? 'text' :'passWord'" class="form-control"  formControlName="passWord"#passwordInput/>
                                     <div class="input-group-append">
-                                        <span class="input-group-text rounded-0" (click)="togglePasswordVisibility()">
+                                        <span class="input-group-text" (click)="togglePasswordVisibility()">
                                             <i class="fas" [ngClass]="{'fa-eye': !isPasswordVisible, 'fa-eye-slash': isPasswordVisible}"></i>
                                         </span>
-                                        
+                                        <!-- <span *ngIf="loginError.passWord" class="error-text">{{loginError.passWord}}</span> -->
                                     </div>
                                 </div>
                                 <span *ngIf="loginError.passWord" class="error-text">{{loginError.passWord}}</span>
-                            </div>
-                            
-                            
+                            </div>          
                         </div>                                                           
                         <div class="row mt-3">
                             <div class="col-md-12 text-center py-4">
-                                <button type="submit" class="btn btn-success">save</button>
+                                <button type="submit" class="btn btn-success">Save</button>
                             </div>
                         </div>
                         <div class="row">

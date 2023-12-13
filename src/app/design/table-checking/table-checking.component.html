@@ -1,0 +1,229 @@
+<!-- <!doctype html>
+<html lang="en">
+<body>
+  <div class="container">
+    <h2 class="center">Data Table</h2>
+    <div class="table-responsive custom-table-responsive">
+        <table class="table custom-table">
+          <thead>
+            <tr>
+              <th scope="col">
+                  <input type="checkbox"  class="js-check-all"/>
+                  <div class="control__indicator"></div>
+              </th>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Star Rating</th>
+              <th scope="col">Update</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr scope="row" *ngFor="let item of items; let i = index" >
+              <th scope="row">
+                  <input type="checkbox"/>
+                  <div class="control__indicator"></div>
+              </th>
+              <td>
+                11
+              </td>
+              <td>James Yates</td>
+              <td>
+                <div class="star-rating">
+                  <span *ngFor="let star of item.stars; let j = index" (click)="rate(i ,  j)" [innerHTML]="star"></span>
+                </div>                    
+              </td>
+              <td><button type="button" class="btn btn-primary">Update</button></td>
+            </tr>
+            <tr class="spacer"><td colspan="100"></td></tr>
+            <tr *ngFor="let item of items; let k = index">
+              <th scope="row">
+                  <input type="checkbox"/>
+                  <div class="control__indicator"></div>
+              </th>
+              <td>12</td>
+              <td>Matthew Wasil</td>
+              <td>
+                <div class="star-rating">
+                  <span *ngFor="let star of item.stars; let l = index" (click)="rate(k , l)" [innerHTML]="star"></span>
+                </div>  
+              </td>
+              <td><button type="button" class="btn btn-primary">Update</button></td>
+            </tr>
+            <tr class="spacer"><td colspan="100"></td></tr>
+            <tr *ngFor="let item of items; let m = index">
+              <th scope="row">
+                  <input type="checkbox"/>
+                  <div class="control__indicator"></div>
+              </th>
+              <td>13</td>
+              <td>Sampson Murphy</td>
+              <td>
+                <div class="star-rating">
+                  <span *ngFor="let star of item.stars; let n = index" (click)="rate(m , n)" [innerHTML]="star"></span>
+                </div>  
+              </td>
+              <td><button type="button" class="btn btn-primary">Update</button></td>
+            </tr>
+            <tr class="spacer"><td colspan="100"></td></tr>
+            <tr *ngFor="let item of items; let o = index">
+              <th scope="row">
+                  <input type="checkbox"/>
+                  <div class="control__indicator"></div>
+              </th>
+              <td>14</td>
+              <td>Gaspar Semenov</td>
+              <td>
+                <div class="star-rating">
+                  <span *ngFor="let star of item.stars; let p = index" (click)="rate(o , p)" [innerHTML]="star"></span>
+                </div>  
+              </td>
+              <td><button type="button" class="btn btn-primary">Update</button></td>
+            </tr>
+            <tr class="spacer"><td colspan="100"></td></tr>
+            <tr *ngFor="let item of items; let q = index">
+              <th scope="row">
+                  <input type="checkbox"/>
+                  <div class="control__indicator"></div>
+              </th>
+              <td>15</td>
+              <td>Matthew Wasil</td>
+              <td>
+                <div class="star-rating">
+                  <span *ngFor="let star of item.stars; let r = index" (click)="rate(q , r)" [innerHTML]="star"></span>
+                </div>  
+              </td>
+              <td><button type="button" class="btn btn-primary">Update</button></td>
+            </tr>
+            <tr class="spacer"><td colspan="100"></td></tr>
+            <tr *ngFor="let item of items; let s = index">
+              <th scope="row">
+                  <input type="checkbox"/>
+                  <div class="control__indicator"></div>
+              </th>
+              <td>16</td>
+              <td>Sampson Murphy</td>
+              <td>
+                <div class="star-rating">
+                  <span *ngFor="let star of item.stars; let t = index" (click)="rate(s , t)" [innerHTML]="star"></span>
+                </div>  
+              </td>
+              <td><button type="button" class="btn btn-primary">Update</button></td>
+            </tr>
+            <tr class="spacer"><td colspan="100"></td></tr>
+            <tr *ngFor="let item of items; let u = index">
+              <th scope="row">
+                  <input type="checkbox"/>
+                  <div class="control__indicator"></div>
+              </th>
+              <td>17</td>
+              <td>Gaspar Semenov</td>
+              <td>
+                <div class="star-rating">
+                  <span *ngFor="let star of item.stars; let v = index" (click)="rate(u , v)" [innerHTML]="star"></span>
+                </div>  
+              </td>
+              <td><button type="button" class="btn btn-primary">Update</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+</body>
+</html> -->
+
+  <div class="container">
+  <h2 class="mb-5">Data Table</h2><br>
+  </div>
+  
+  <div class="container">
+  <div class="table-responsive custom-table-responsive">
+  <table class="table custom-table">
+  <thead>
+    <tr>
+      <th>
+        <input type="checkbox" (change)="selectAll($event)" />
+      </th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Star Rating</th>
+      <th>Update</th>
+    </tr>
+  </thead>
+  <tbody class="text-center">
+    <tr *ngFor="let item of items; let i = index" [ngClass]="{'disabled': !item.enabled}">
+      <td>
+        <input type="checkbox" (change)="toggleModal($event)"/>
+      </td>
+      <td>{{ item.id }}</td>
+      <td>{{ item.name }}</td>
+      <td>
+        <div class="star-rating">
+          <span *ngFor="let star of item.stars; let j = index" (click)="rate(i, j)" [innerHTML]="star"></span>
+        </div>
+      </td>
+      <td>
+        <button type="button" class="btn btn-primary" [disabled]="!item.enabled">Update</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+<div [style.display]="isVisible ? 'block' : 'none'" class="modal fixed-modal-position" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="close()"></button>
+      </div>
+      <div class="modal-body" style="max-height: 300px; overflow-y: auto;">
+        <div class="row mt-2 py-3">
+          <div class="col-md-6">
+            <label>Enter Your Marks</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="col-md-3 mt-3 px-2 py-3">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="px-2">Selected</label>
+          </div>
+          <div class="col-md-3 mt-3 px-2 py-3">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="px-2">Rejected</label>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <label>Enter Your Marks</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="col-md-3 mt-3 px-2 py-3">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="px-2">Selected</label>
+          </div>
+          <div class="col-md-3 mt-3 px-2 py-3">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="px-2">Rejected</label>
+          </div>
+        </div>
+
+        <div class="row mt-3 py-3">
+          <div class="col-md-6">
+            <label>Enter Your Final Marks</label>
+            <input type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+      <!-- <div class="modal-footer mt-4">
+        <div class="btn mx-auto">
+          <button type="button" class="btn btn-success">Save</button>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,178 @@
+/* 
+.table-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .star-rating {
+  font-size: 24px; 
+  color: gold;
+}
+
+.star {
+  cursor: pointer;
+
+}
+*/
+/* .container {
+  display: flex;
+  justify-content: center;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+ th,td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.star-rating {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.star-rating span {
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+} */
+
+.h2{
+  margin-right: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.table {
+  width: 100%; /* Adjust the width of the table as needed */
+  border-collapse: collapse;
+  margin-top: 20px; /* Add margin-top for space */
+}
+
+ th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 16px;
+  text-align: center;
+}
+
+
+th {
+  background-color: rgb(253, 233, 230);
+}
+
+td{
+  background-color: rgb(205, 247, 244);
+  /* text-align: center; */
+}
+
+.star-rating {
+  font-size: 28px;
+  cursor: pointer;
+  color: red;
+}
+
+.star-rating span {
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+ td:not(:last-child) {
+  padding-inline: 75px; 
+  text-align: center;
+}
+
+.modal-content{
+    width: 600px;
+    height: 400px;
+    background-color: rgb(240, 204, 204);
+}
+
+.fixed-modal-position {
+  position: fixed;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  max-height: 80vh; 
+  overflow-y: auto; 
+}
+.modal-body {
+  max-height: calc(100% - 56px); 
+  overflow-y: auto; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
