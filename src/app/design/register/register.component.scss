@@ -1,24 +1,20 @@
-.modal-content{
-    width: 700px;
-    height: 500px;
+.container-fluid {
+  height: 100vh;
+  background: url('../../../assets/images/stu-bg.avif');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
-.custom-checkbox  {
-    transform: scale(2.5);
-    align-items: center;
-    margin-right: 10px; 
-  }
+.error-text {
+  font-size: 17px;
+  color: red;
+  font-family: 'Times New Roman', Times, serif;
+}
 
-  .fixed-modal-position {
-    position: fixed;
-    top: 50%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-height: 80vh; 
-    overflow-y: auto; 
-  }
+.fas{
+  font-size: 25px;
+}
 
-  .modal-body {
-    max-height: calc(100% - 56px); 
-    overflow-y: auto; 
-  }
+.card{
+  background-color: rgb(216, 216, 186);
+}

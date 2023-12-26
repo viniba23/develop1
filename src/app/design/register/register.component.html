@@ -1,5 +1,5 @@
-<div class="container-fluid">
-        <form>
+<!-- <div class="container-fluid"> -->
+        <!-- <form>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 mt-3">                       
@@ -54,7 +54,7 @@
                 </div>
             </div>
            
-        </form>
+        </form> -->
 
 
 
@@ -108,7 +108,7 @@
             </div>
           </div> -->
 
-          <div [style.display]="isVisible ? 'block' : 'none'" class="modal fixed-modal-position" tabindex="-1" role="dialog">
+          <!-- <div [style.display]="isVisible ? 'block' : 'none'" class="modal fixed-modal-position" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -174,23 +174,72 @@
                 </div>
               </div>
             </div>
-          </div>
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        
- </div>
+          </div> -->
+ <!-- </div> -->
+
+ <div class="container-fluid">
+    <form>
+        <div class="row justify-content-center p-5 mt-3">
+            <div class="col-md-6">
+                <div class="card ngmt-5">
+                    <div class="card-body">
+                        <div class="row" >
+                            <div class="col-md-12 mb-3 text-center">
+                                <h1>Sign Up<hr></h1>                                                      
+                            </div>
+                            <div class="col-md-12 ">                                    
+                                <label class="form-label">First Name <strong>:</strong></label>
+                                <input type="text" class="form-control " formControlName="firstName" placeholder="Enter the FirstName"> 
+                                <!-- <span *ngIf="loginError.userName" class="error-text">{{loginError.userName}}</span>                                     -->
+                            </div>
+                            <div class="col-md-12 mt-4">                                    
+                                <label class="form-label">Last Name <strong>:</strong></label>
+                                <input type="text" class="form-control " formControlName="lastName" placeholder="Enter the LastName"> 
+                                <!-- <span *ngIf="loginError.userName" class="error-text">{{loginError.userName}}</span>                                     -->
+                            </div>
+                            <div class="col-md-12 mt-4">                                    
+                                <label class="form-label">Email Address<strong>:</strong></label>
+                                <input type="email" class="form-control " formControlName="lastName" placeholder="Enter the email Address"> 
+                                <!-- <span *ngIf="loginError.userName" class="error-text">{{loginError.userName}}</span>                                     -->
+                            </div>
+                            <div class="col-md-12 mt-4">
+                                <label class="form-label">Create Password <strong>:</strong></label>
+                                <input type="text" class="form-control " formControlName="lastName" placeholder="">
+                                <!-- <div class="input-group">
+                                    <input [type]="isPasswordVisible ? 'text' :'passWord'" class="form-control"  formControlName="passWord"#passwordInput/>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" (click)="togglePasswordVisibility()">
+                                            <i class="fas" [ngClass]="{'fa-eye': !isPasswordVisible, 'fa-eye-slash': isPasswordVisible}"></i>
+                                        </span>
+                                    </div>
+                                </div> -->
+                                <!-- <span *ngIf="loginError.passWord" class="error-text">{{loginError.passWord}}</span> -->
+                            </div>
+                            <div class="col-md-12 mt-4">
+                                <label class="form-label">Confrom Password <strong>:</strong></label>
+                                <div class="input-group ">
+                                    <input [type]="isVisible ? 'text' :'passWord'" class="form-control"  formControlName="passWord"#passwordInput/>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" (click)="togglePasswordVisibility()">
+                                            <i class="fas" [ngClass]="{'fa-eye': !isVisible, 'fa-eye-slash': isVisible}"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- <span *ngIf="loginError.passWord" class="error-text">{{loginError.passWord}}</span> -->
+                            </div>          
+                        </div>       
+                                                           
+                        <div class="row mt-5" >
+                            <div class="col-md-12 text-center ">
+                                <button type="submit" class="btn btn-success">Save</button>
+                            </div>
+                        </div>
+                    </div>                       
+                </div> 
+            </div>
+        </div>
+    </form>
+</div>
     
 
 
