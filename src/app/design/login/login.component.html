@@ -19,7 +19,7 @@
                                     <input [type]="isPasswordVisible ? 'text' :'passWord'" class="form-control"  formControlName="passWord"#passwordInput/>
                                     <div class="input-group-append">
                                         <span class="input-group-text" (click)="togglePasswordVisibility()">
-                                            <i class="fas" [ngClass]="{'fa-eye': !isPasswordVisible, 'fa-eye-slash': isPasswordVisible}"></i>
+                                            <i class="fas" [ngClass]="{'fa-eye-slash': !isPasswordVisible, 'fa-eye': isPasswordVisible}"></i>
                                         </span>
                                     </div>
                                 </div>

@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <form>
+    <form [formGroup]="students" (ngSubmit)="onSubmit()">
         <div class="row justify-content-center align-items-center h-100">
             <div class="col-md-4"></div>
             <div class="col-md-4 mt-5">
@@ -13,32 +13,37 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Student Name:</label>
+                                    <label for="exampleFormControlInput1" class="form-label">Student Name:<span style="color:red;">*</span></label>
                                     <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="name" placeholder="Enter Name">
-                                  </div>
+                                    <span *ngIf="studentError.name" class="error-text">{{studentError.name}}</span>
+                                </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Department:</label>
+                                    <label for="exampleFormControlInput1" class="form-label">Department:<span style="color:red;">*</span></label>
                                     <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="department" placeholder="Enter the Department">
+                                    <span *ngIf="studentError.department" class="error-text">{{studentError.department}}</span>
                                 </div>
                             </div> 
                             <div class="col-md-12">
                                 <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Email Address:</label>
+                                    <label for="exampleFormControlInput1" class="form-label">Email Address:<span style="color:red;">*</span></label>
                                     <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="email" placeholder="name@example.com">
+                                    <span *ngIf="studentError.email" class="error-text">{{studentError.email}}</span>
                                   </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">College Name:</label>
+                                    <label for="exampleFormControlInput1" class="form-label">College Name:<span style="color:red;">*</span></label>
                                     <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="college" placeholder="Enter the College">
+                                    <span *ngIf="studentError.college" class="error-text">{{studentError.college}}</span>
                                 </div>
                             </div>   
                             <div class="col-md-12">
                                 <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Education Year:</label>
+                                    <label for="exampleFormControlInput1" class="form-label">Education Year:<span style="color:red;">*</span></label>
                                     <input type="email" class="form-control" id="exampleFormControlInput1"  formControlName="year" placeholder="Enter the Year">
+                                    <span *ngIf="studentError.year" class="error-text">{{studentError.year}}</span>
                                 </div>
                             </div>                                     
                         </div>
@@ -46,12 +51,6 @@
                             <div class="col-md-12 text-center py-4">
                                 <button type="text" class="btn btn-success">save</button>
                             </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text">
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                    <i class="fas fa-eye-slash"></i>
-                                </span>
-                             </div>
                         </div>
                     </div>                       
                 </div>
