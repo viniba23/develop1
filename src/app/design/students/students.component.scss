@@ -1,5 +1,5 @@
 .container-fluid{
-    background-color: #333;
+    // background-color: #8fb56f;
     background-size: 100% 100%;
     height: 100vh;
     background-repeat: no-repeat;
@@ -12,6 +12,9 @@ h4{
   
   .error-text {
     font-size: 17px;
-    color: red;
+    color: rgb(185, 6, 6);
     font-family: 'Times New Roman', Times, serif;
+  }
+  .card{
+    background-color: rgb(216, 216, 186);
   }
