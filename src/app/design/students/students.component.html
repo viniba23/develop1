@@ -13,14 +13,14 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1" class="form-label">Student Name:<span style="color:red;">*</span></label>
-                                    <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="name" placeholder="Enter Name">
+                                    <input type="email" class="form-control text-capitalize" id="exampleFormControlInput1" formControlName="name" placeholder="Enter Name">
                                     <span *ngIf="studentError.name" class="error-text">{{studentError.name}}</span>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1" class="form-label">Department:<span style="color:red;">*</span></label>
-                                    <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="department" placeholder="Enter the Department">
+                                    <input type="email" class="form-control text-capitalize" id="exampleFormControlInput1" formControlName="department" placeholder="Enter the Department">
                                     <span *ngIf="studentError.department" class="error-text">{{studentError.department}}</span>
                                 </div>
                             </div> 
@@ -29,12 +29,12 @@
                                     <label for="exampleFormControlInput1" class="form-label">Email Address:<span style="color:red;">*</span></label>
                                     <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="email" placeholder="name@example.com">
                                     <span *ngIf="studentError.email" class="error-text">{{studentError.email}}</span>
-                                  </div>
+                                </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1" class="form-label">College Name:<span style="color:red;">*</span></label>
-                                    <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="college" placeholder="Enter the College">
+                                    <input type="email" class="form-control text-capitalize" id="exampleFormControlInput1" formControlName="college" placeholder="Enter the College">
                                     <span *ngIf="studentError.college" class="error-text">{{studentError.college}}</span>
                                 </div>
                             </div>   

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -8,6 +9,10 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+
+  constructor ( private toastr: ToastrService){
+  
+           }
 
   // isChecked1: boolean = true; 
   // isChecked2: boolean = false;
@@ -72,19 +77,17 @@ export class RegisterComponent {
         hasError=true;
       }
       
-      if (this.signup.get('confirmPassword')?.invalid) {
-        const passwordControl = this.signup.get('passWord');
-        const confirmPasswordControl = this.signup.get('confirmPassword'); 
-        console.log("password:");       
-        if (passwordControl && confirmPasswordControl && passwordControl.value !== confirmPasswordControl.value) {
-          confirmPasswordControl.setErrors({ passwordMismatch: true });
-        }else{
-          this.signupError.confirmPassword = "Password do not match";
+
+      const passwordControl = this.signup.get('passWord');
+      const confirmPasswordControl = this.signup.get('confirmPassword');
+      if (passwordControl && confirmPasswordControl) {
+        if (passwordControl.value !== confirmPasswordControl.value) {
+          confirmPasswordControl.setErrors({ 'passwordMismatch': true });
+          this.signupError.confirmPassword = "Passwords do not match";
           hasError = true;
         }
       }
         
-
       if(!hasError) {
         this.saveSignup(status);
     }
@@ -95,9 +98,10 @@ export class RegisterComponent {
 
     saveSignup(status : String){
       console.log("saved")
-
+      this.toastr.success('Saved successfully', 'Success');
     }
 
+    
 
     togglePasswordVisibility() {
       this.isVisible = !this.isVisible;
