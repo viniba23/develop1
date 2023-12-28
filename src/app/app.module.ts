@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {TableCheckingComponent} from './design/table-checking/table-checking.component';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {  NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -27,12 +28,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      timeOut: 3000,
+        timeOut: 3000,
         positionClass: 'toast-top-right',
         preventDuplicates: true
-    }),
-     
-  
+    }), 
+    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
   ],
   providers: [],
   bootstrap: [AppComponent]

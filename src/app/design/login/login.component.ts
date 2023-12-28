@@ -54,7 +54,9 @@ export class LoginComponent {
   }
 
 
-  saveLogin(status : String){}
+  saveLogin(status : String){
+    
+  }
 
   register(){
     this.router.navigate(['/register'])

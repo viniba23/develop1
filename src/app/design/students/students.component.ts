@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms
 })
 export class StudentsComponent {
 
-  constructor(private router: Router) {
+  constructor(private router: Router,private spinner : NgxSpinnerService) {
 
   }
 
@@ -71,6 +72,14 @@ export class StudentsComponent {
     }
 
 
+  }
+
+  ngOnInit(){
+    this.spinner.show();
+
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1000);
   }
 
   onSubmit(){

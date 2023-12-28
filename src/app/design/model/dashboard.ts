@@ -1,3 +1,2 @@
-export interface Dashboard{
-    
+export interface Dashboard{   
 }

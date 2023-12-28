@@ -2,5 +2,36 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css");
+@import 'ngx-toastr/toastr';
 
 /* Your custom styles go here */
+.custom-loader {
+    width: 100px;
+    height: 100px;
+    display: grid;
+  }
+  .custom-loader::before,
+  .custom-loader::after {
+    content:"";
+    grid-area: 1/1;
+    --c: radial-gradient(farthest-side,#b4e3e9 92%,#0000);
+    background:
+      var(--c) 50%  0,
+      var(--c) 50%  100%,
+      var(--c) 100% 50%,
+      var(--c) 0    50%;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    animation: s2 1s infinite;
+  }
+  .custom-loader::before {
+  margin:8px;
+  filter:hue-rotate(45deg);
+  background-size: 16px 16px;
+  animation-timing-function: linear
+  }
+
+  @keyframes s2{
+    100%{transform: rotate(.5turn)}
+    }
+  

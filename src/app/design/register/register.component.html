@@ -184,7 +184,7 @@
                 <div class="card ngmt-5">
                     <div class="card-body">
                         <div class="row" >
-                            <div class="col-md-12  text-center">
+                            <div class="col-md-12 text-center">
                                 <h1>Sign Up<hr></h1>                                                      
                             </div>
                             <div class="col-md-12 ">                                    
@@ -196,6 +196,11 @@
                                 <label class="form-label">Last Name <strong>:</strong><span style="color:red;">*</span></label>
                                 <input type="text" class="form-control text-capitalize " formControlName="lastName" placeholder="Enter the LastName"> 
                                 <span *ngIf="signupError.lastName" class="error-text">{{signupError.lastName}}</span>                                    
+                            </div>
+                            <div class="col-md-12 mt-3">                                    
+                                <label class="form-label">User Name <strong>:</strong><span style="color:red;">*</span></label>
+                                <input type="text" class="form-control text-capitalize " formControlName="userName" placeholder="Enter the UserName"> 
+                                <span *ngIf="signupError.userName" class="error-text">{{signupError.userName}}</span>                                    
                             </div>
                             <div class="col-md-12 mt-3">                                    
                                 <label class="form-label">Email Address<strong>:</strong><span style="color:red;">*</span></label>
@@ -221,7 +226,7 @@
                             </div>          
                         </div>                                                                 
                         <div class="row mt-3" >
-                            <div class="col-md-12 text-center ">
+                            <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-success">Save</button>
                             </div>
                         </div>
@@ -231,6 +236,9 @@
         </div>
     </form>
 </div>
+<ngx-spinner type="ball-clip-rotate">
+    <div class="custom-loader"></div>
+</ngx-spinner>
     
 
 

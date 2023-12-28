@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 
 
@@ -10,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegisterComponent {
 
-  constructor ( private toastr: ToastrService){
+  constructor ( private toastr: ToastrService,private spinner : NgxSpinnerService,private router:Router){
   
            }
 
@@ -27,20 +29,32 @@ export class RegisterComponent {
     // }
 
     signup = new UntypedFormGroup({
-      firstName : new UntypedFormControl('',[Validators.required,Validators.nullValidator]),
-      lastName : new UntypedFormControl('',[Validators.required,Validators.nullValidator]),
-      email : new UntypedFormControl('',[Validators.required,Validators.nullValidator]),
-      passWord : new UntypedFormControl('',[Validators.required,Validators.nullValidator]),
-      confirmPassword : new UntypedFormControl('',[Validators.required,Validators.nullValidator]),
+        firstName : new UntypedFormControl('',[Validators.required,Validators.nullValidator]),
+        lastName : new UntypedFormControl('',[Validators.required,Validators.nullValidator]),
+        email : new UntypedFormControl('',[Validators.required,Validators.nullValidator]),
+        passWord : new UntypedFormControl('',[Validators.required,Validators.nullValidator]),
+        confirmPassword : new UntypedFormControl('',[Validators.required,Validators.nullValidator]),
+        userName : new UntypedFormControl('',[Validators.required,Validators.nullValidator]),
     })
 
 
      public signupError= {
-      firstName: '',
-      lastName: '',
-      email: '',
-      passWord: '',
-      confirmPassword: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        passWord: '',
+        confirmPassword: '',
+        userName: '',
+    }
+
+
+    ngOnInit(){
+      this.spinner.show();
+
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1000);
+    
     }
 
     onSubmit(){
@@ -53,6 +67,7 @@ export class RegisterComponent {
       this.signupError.email="";
       this.signupError.passWord="";
       this.signupError.confirmPassword="";
+      this.signupError.userName="";
 
 
       let hasError=false;
@@ -64,6 +79,11 @@ export class RegisterComponent {
 
       if(this.signup.get('lastName')?.invalid){
         this.signupError.lastName="Enter Last Name";
+        hasError=true;
+      }
+
+      if(this.signup.get('userName')?.invalid){
+        this.signupError.userName="Enter User Name";
         hasError=true;
       }
 
@@ -90,15 +110,17 @@ export class RegisterComponent {
         
       if(!hasError) {
         this.saveSignup(status);
-    }
+        }
     }
 
     
   
 
     saveSignup(status : String){
-      console.log("saved")
-      this.toastr.success('Saved successfully', 'Success');
+        this.spinner.show()
+      console.log("saved");
+      this.toastr.success("Saved successfully");
+      this.router.navigate(['/'])
     }
 
     
