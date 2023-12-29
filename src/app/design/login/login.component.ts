@@ -3,6 +3,9 @@ import { UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms'
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { AppService } from 'src/app/service/app.service';
+import { Login } from '../model/login';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -13,14 +16,16 @@ export class LoginComponent {
 
   fieldTextType: boolean =false;
   isPasswordVisible: boolean =false  
+  currentDetails: Login[]=[];
+  destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private router: Router,private toastr:ToastrService,private spinner : NgxSpinnerService,) {
+  constructor(private router: Router,private toastr:ToastrService,private spinner : NgxSpinnerService,private appService: AppService) {
 
   }
   login = new UntypedFormGroup({
     userName: new UntypedFormControl('',[Validators.required, Validators.nullValidator]),
     passWord: new UntypedFormControl('',[Validators.required, Validators.nullValidator]),
-
+    createdBy: new UntypedFormControl('',[Validators.required, Validators.nullValidator]),
   })
 
   public loginError ={
@@ -60,6 +65,18 @@ export class LoginComponent {
 
 
   saveLogin(status : String){
+    console.log("SAVE DETAILS");
+    this.toastr.success("Saved successfully");
+    this.router.navigate(['/dash'])
+      this.appService
+      .getLogin(this.login.value)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data) => {
+        console.log("Details", data);
+        // @ts-ignore
+        this.customer=data;
+      })
+
     
   }
 

@@ -3,6 +3,8 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { Subject, takeUntil } from 'rxjs';
+import { AppService } from 'src/app/service/app.service';
 
 
 @Component({
@@ -12,13 +14,15 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegisterComponent {
 
-  constructor ( private toastr: ToastrService,private spinner : NgxSpinnerService,private router:Router){
+  constructor ( private toastr: ToastrService,private spinner : NgxSpinnerService,private router:Router,
+    private appService : AppService){
   
            }
 
   // isChecked1: boolean = true; 
   // isChecked2: boolean = false;
-  isVisible: boolean = false  
+  isVisible: boolean = false;
+  destroy$: Subject<boolean> = new Subject<boolean>();
 
     // /saveType() {      
     //     this.isVisible = false;      
@@ -122,16 +126,25 @@ export class RegisterComponent {
       this.toastr.success("Saved successfully");
       this.spinner.show();
       this.router.navigate(['/'])
-      // this.spinner.show();
-      // setTimeout(() => {
-      //   this.spinner.hide();
-      // }, 1000);
+      console.log("SAVE DETAILS");
+      this.toastr.success("Saved successfully");
+      this.router.navigate(['/dash'])
+      this.appService
+      .saveRegisterDetails(this.signup.value)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data) => {
+        console.log("Details", data);
+        // @ts-ignore
+        this.customer=data;
+      })
     }
 
     
 
     togglePasswordVisibility() {
       this.isVisible = !this.isVisible;
+      
+      
   }
 
 }

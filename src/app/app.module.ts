@@ -11,6 +11,7 @@ import {TableCheckingComponent} from './design/table-checking/table-checking.com
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {  NgxSpinnerModule } from 'ngx-spinner';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {  NgxSpinnerModule } from 'ngx-spinner';
         preventDuplicates: true
     }), 
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

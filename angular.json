@@ -31,8 +31,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/ngx-toastr/toastr.css",
-              "node_modules/ngx-spinner/loader.css"
+              "node_modules/ngx-toastr/toastr.css"
+            
             ],
             "scripts": []
           },

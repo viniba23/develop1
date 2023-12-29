@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { Subject, takeUntil } from 'rxjs';
+import { AppService } from 'src/app/service/app.service';
 
 
 @Component({
@@ -12,7 +14,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class StudentsComponent {
 
-  constructor(private router: Router,private spinner : NgxSpinnerService,private toastr: ToastrService) {
+  destroy$: Subject<boolean> = new Subject<boolean>();
+
+  constructor(private router: Router,private spinner : NgxSpinnerService,private toastr: ToastrService,private appService:AppService) {
 
   }
 
@@ -91,6 +95,14 @@ export class StudentsComponent {
     console.log("SAVE DETAILS");
     this.toastr.success("Saved successfully");
     this.router.navigate(['/dash'])
+      this.appService
+      .saveStudentsDetails(this.students.value)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data) => {
+        console.log("Details", data);
+        // @ts-ignore
+        this.customer=data;
+      })
   }
 
 
