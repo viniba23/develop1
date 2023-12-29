@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,7 @@ export class LoginComponent {
   fieldTextType: boolean =false;
   isPasswordVisible: boolean =false  
 
-  constructor(private router: Router) {
+  constructor(private router: Router,private toastr:ToastrService,private spinner : NgxSpinnerService,) {
 
   }
   login = new UntypedFormGroup({
@@ -25,7 +27,10 @@ export class LoginComponent {
         userName: '',
         passWord: '',
   }
-
+ 
+  ngOnInit(){
+  
+  }
 
   onSubmit(){
       this.formValidation("Active");

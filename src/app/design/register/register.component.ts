@@ -50,7 +50,6 @@ export class RegisterComponent {
 
     ngOnInit(){
       this.spinner.show();
-
       setTimeout(() => {
         this.spinner.hide();
       }, 1000);
@@ -119,8 +118,14 @@ export class RegisterComponent {
     saveSignup(status : String){
         this.spinner.show()
       console.log("saved");
+      // this.spinner.show();
       this.toastr.success("Saved successfully");
+      this.spinner.show();
       this.router.navigate(['/'])
+      // this.spinner.show();
+      // setTimeout(() => {
+      //   this.spinner.hide();
+      // }, 1000);
     }
 
     
