@@ -21,13 +21,13 @@
                                 </tr>
                             </thead>
                             <tbody class="text-center">
-                                <tr>
-                                    <td>vgfg</td>
-                                    <td>eeee</td>
-                                    <td>ttt</td>
-                                    <td>vini23bca@gmail.com</td>
-                                    <td>ttt</td>
-                                    <td>2021-2024</td>
+                                <tr *ngFor="let list of student let i =index" >
+                                    <td>{{i+1}}</td>
+                                    <td>{{list.name}}</td>
+                                    <td>{{list.department}}</td>
+                                    <td>{{list.email}}</td>
+                                    <td>{{list.college}}</td>
+                                    <td>{{list.year}}</td>
                                 </tr>
                             </tbody>
                         </table>

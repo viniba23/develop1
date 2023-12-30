@@ -25,7 +25,6 @@ export class LoginComponent {
   login = new UntypedFormGroup({
     userName: new UntypedFormControl('',[Validators.required, Validators.nullValidator]),
     passWord: new UntypedFormControl('',[Validators.required, Validators.nullValidator]),
-    createdBy: new UntypedFormControl('',[Validators.required, Validators.nullValidator]),
   })
 
   public loginError ={
@@ -69,12 +68,12 @@ export class LoginComponent {
     this.toastr.success("Saved successfully");
     this.router.navigate(['/dash'])
       this.appService
-      .getLogin(this.login.value)
+      .saveLoginDetails(this.login.value)
       .pipe(takeUntil(this.destroy$))
       .subscribe((data) => {
         console.log("Details", data);
         // @ts-ignore
-        this.customer=data;
+        // this.customer=data;
       })
 
     

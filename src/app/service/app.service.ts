@@ -21,7 +21,7 @@ export class AppService {
   //     this.endpoint +"/User/getLogin/" + MailId+ "/" + Password,
   //   );
   // }
-  getLogin(userForm : UntypedFormGroup){
+  saveLoginDetails(userForm : UntypedFormGroup){
     return this.http.post<Login>(
       this.endpoint +"/api/login/add" , userForm
     )
@@ -37,5 +37,12 @@ export class AppService {
     return this.http.post<Register>(
       this.endpoint +"/api/register/add" , userForm
     )
+  }
+
+
+  getStudentsDetails(){
+    return this.http.get<Students>(
+      this.endpoint+"/api/studentsDetails/get" 
+    );
   }
 }

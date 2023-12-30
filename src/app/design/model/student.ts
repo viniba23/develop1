@@ -1,7 +1,7 @@
 export interface Students{
-    studentName: String;
+  name: String;
     department: String;
     email: String;
-    clgName: String;
-    educationYear: String;
+    college: String;
+    year: String;
   }
