@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AppService } from 'src/app/service/app.service';
 import { Login } from '../model/login';
 import { Subject, takeUntil } from 'rxjs';
+import { Register } from '../model/register';
 
 @Component({
   selector: 'app-login',
@@ -16,20 +17,20 @@ export class LoginComponent {
 
   fieldTextType: boolean =false;
   isPasswordVisible: boolean =false  
-  currentDetails: Login[]=[];
   destroy$: Subject<boolean> = new Subject<boolean>();
+  customer : Register[]=[]; 
 
   constructor(private router: Router,private toastr:ToastrService,private spinner : NgxSpinnerService,private appService: AppService) {
 
   }
   login = new UntypedFormGroup({
     userName: new UntypedFormControl('',[Validators.required, Validators.nullValidator]),
-    passWord: new UntypedFormControl('',[Validators.required, Validators.nullValidator]),
+    confirmPassword: new UntypedFormControl('',[Validators.required, Validators.nullValidator]),
   })
 
   public loginError ={
         userName: '',
-        passWord: '',
+        confirmPassword: '',
   }
  
   ngOnInit(){
@@ -42,7 +43,7 @@ export class LoginComponent {
    
   formValidation(status:String){
         this.loginError.userName="";
-        this.loginError.passWord="";
+        this.loginError.confirmPassword="";
 
         let hasError = false;
 
@@ -51,33 +52,73 @@ export class LoginComponent {
           hasError = true;
         }
 
-        if(this.login.get('passWord')?.invalid){
-            this.loginError.passWord= "Enter the Valid Password";
+        if(this.login.get('confirmPassword')?.invalid){
+            this.loginError.confirmPassword= "Enter the Valid Password";
             hasError = true;
         }
 
 
         if(!hasError) {
-            this.saveLogin(status);
+            this.saveuserLogin();
         }
   }
 
 
-  saveLogin(status : String){
+  saveLogin() {
     console.log("SAVE DETAILS");
-    this.toastr.success("Saved successfully");
-    this.router.navigate(['/dash'])
-      this.appService
-      .saveLoginDetails(this.login.value)
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((data) => {
-        console.log("Details", data);
-        // @ts-ignore
-        // this.customer=data;
-      })
-
-    
+    const userName = this.login.get("userName")?.value;
+    const confirmPassword = this.login.get("confirmPassword")?.value;
+        this.appService
+        .getLoginId(userName, confirmPassword)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe((data) => {
+          console.log("Details", data);
+          // @ts-ignore
+          this.customer = data;
+          for(let login of this.customer){
+            if (login.userName[0] != null && login.confirmPassword[0] !=null ) {
+              this.router.navigate(['/dash'])
+              this.toastr.success("Login successfully")              
+            }
+             else {
+              this.toastr.error("Login Credentisls is incorrect")
+              this.login.reset();
+              console.log("kjkjk")
+            }
+          }
+        }
+        ,(err: any) =>{
+        },() => console.log("HTTP request completed"));
   }
+
+  saveuserLogin() {
+    const userName = this.login.get("userName")?.value;
+    const confirmPassword = this.login.get("confirmPassword")?.value;
+  
+    this.appService
+      .getLoginId(userName, confirmPassword)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
+        (data) => {
+          console.log("Details", data);
+          // @ts-ignore
+          this.customer = data;  
+          if (this.customer && this.customer.length > 0) {
+            this.router.navigate(['/dash']);
+            this.toastr.success("Login successful");
+          } else {
+            this.toastr.error("Login Credentials are incorrect");
+            this.login.reset();
+            console.log("Incorrect credentials");
+          }
+        },
+        (err: any) => {
+        },
+        () => console.log("HTTP request completed")
+      );
+  }
+  
+  
 
   register(){
     this.router.navigate(['/register'])
@@ -86,5 +127,15 @@ export class LoginComponent {
   togglePasswordVisibility() {
     this.isPasswordVisible = !this.isPasswordVisible;
 }
+
+// getLogin(){
+//   this.appService.getLoginId(this.login.get('userName').value,this.login.get('passWord').value)
+//   pipe(takeUntil(this.destroy$))
+//       .subscribe((data) => {
+//         this.spinner.hide()
+//         console.log("Test data::", data);
+//         // @ts-ignore
+//         this.loginDetails = data;
+// }
 
 }

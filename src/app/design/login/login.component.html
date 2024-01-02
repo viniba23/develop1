@@ -16,14 +16,14 @@
                             <div class="col-md-12 mt-4">
                                 <label class="form-label">Password <strong>:</strong></label>
                                 <div class="input-group">
-                                    <input [type]="isPasswordVisible ? 'text' :'passWord'" class="form-control"  formControlName="passWord"#passwordInput/>
+                                    <input [type]="isPasswordVisible ? 'text' :'passWord'" class="form-control"  formControlName="confirmPassword"#passwordInput/>
                                     <div class="input-group-append">
                                         <span class="input-group-text" (click)="togglePasswordVisibility()">
                                             <i class="fas" [ngClass]="{'fa-eye-slash': !isPasswordVisible, 'fa-eye': isPasswordVisible}"></i>
                                         </span>
                                     </div>
                                 </div>
-                                <span *ngIf="loginError.passWord" class="error-text">{{loginError.passWord}}</span>
+                                <span *ngIf="loginError.confirmPassword" class="error-text">{{loginError.confirmPassword}}</span>
                             </div>          
                         </div>                                                           
                         <div class="row mt-3">

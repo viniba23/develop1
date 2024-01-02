@@ -26,19 +26,19 @@ export class DashboardComponent {
       this.spinner.hide();
     }, 1000);
 
-    this.getEventPlaceByuserId();
+    this.getDetails();
   }
 
   adddetails(){
     this.router.navigate(['/students']);
   }
 
-  getEventPlaceByuserId() {
+  getDetails() {
     this.appService
       .getStudentsDetails()
       .pipe(takeUntil(this.destroy$))
       .subscribe((data) => {
-        console.log("Event place Dropdwon::", data);
+        console.log("student details::", data);
         // @ts-ignore
         this.student = data;
         // var localDetails : string [] = [];

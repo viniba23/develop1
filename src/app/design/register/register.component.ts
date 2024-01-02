@@ -5,6 +5,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { Subject, takeUntil } from 'rxjs';
 import { AppService } from 'src/app/service/app.service';
+import { Register } from '../model/register';
 
 
 @Component({
@@ -14,6 +15,9 @@ import { AppService } from 'src/app/service/app.service';
 })
 export class RegisterComponent {
 
+
+  getEPUserDetails: Register[]=[];
+  getEmailId : string [] = [];
   constructor ( private toastr: ToastrService,private spinner : NgxSpinnerService,private router:Router,
     private appService : AppService){
   
@@ -57,6 +61,8 @@ export class RegisterComponent {
       setTimeout(() => {
         this.spinner.hide();
       }, 1000);
+
+      this.getEPUser();
     
     }
 
@@ -112,14 +118,14 @@ export class RegisterComponent {
       }
         
       if(!hasError) {
-        this.saveSignup(status);
+        this.saveSignup();
         }
     }
 
     
   
 
-    saveSignup(status : String){
+    saveSignup(){
         this.spinner.show()
       console.log("saved");
       // this.spinner.show();
@@ -128,7 +134,7 @@ export class RegisterComponent {
       this.router.navigate(['/'])
       console.log("SAVE DETAILS");
       this.toastr.success("Saved successfully");
-      this.router.navigate(['/dash'])
+      this.router.navigate([''])
       this.appService
       .saveRegisterDetails(this.signup.value)
       .pipe(takeUntil(this.destroy$))
@@ -142,9 +148,19 @@ export class RegisterComponent {
     
 
     togglePasswordVisibility() {
-      this.isVisible = !this.isVisible;
-      
-      
+      this.isVisible = !this.isVisible;     
+  }
+
+
+  getEPUser(){
+    this.appService.getUserRegDetails()
+    .pipe(takeUntil(this.destroy$))
+    .subscribe((data) => {
+      console.log("UserDetails::",data)
+      //@ts-ignore
+      this.getEPUserDetails = data
+    },(err: any) =>{
+    },() => console.log("HTTP request completed"))
   }
 
 }
