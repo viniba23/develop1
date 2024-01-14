@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from "@angular/common/http";
-import { Login } from '../design/model/login';
 import { UntypedFormGroup } from '@angular/forms';
 import { Students } from '../design/model/student';
 import { Register } from '../design/model/register';
