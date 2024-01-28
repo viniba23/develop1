@@ -18,6 +18,7 @@
                                     <th>E-Mail</th>
                                     <th>College Name</th>
                                     <th>Education Year</th>
+                                    <th>For Details</th>
                                 </tr>
                             </thead>
                             <tbody class="text-center">
@@ -28,6 +29,11 @@
                                     <td>{{list.email}}</td>
                                     <td>{{list.college}}</td>
                                     <td>{{list.year}}</td>
+                                    <td>
+                                        <div class="text-center">
+                                            <button type="button" class="btn btn-primary" (click)="getEvent()">Click Here</button>
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

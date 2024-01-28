@@ -1,9 +1,22 @@
 .container-fluid {
     height: 100vh;
-    background: url('../../../assets/images/login.jpg');
+    background: url('../../../assets/images/img.avif');
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover; 
+    align-items: center;
+    min-height: auto;
+    background: rgba(0, 0, 0, 0.5);
+    // backdrop-filter: blur(10px);
+    // filter: blur(5px);
+    // filter: grayscale(100%) contrast(70%) brightness(90%);
 
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .error-text {
@@ -16,6 +29,11 @@
     font-size: 25px;
 }
 
-.card{
-    background-color: rgb(216, 216, 186);
+.card {
+    background: transparent;
+    border: none;
+    // backdrop-filter: blur(10px);
+    color: blanchedalmond;
+    border: 2px solid rgba(255,255,255,.2);
 }
+

@@ -27,10 +27,12 @@ export class DashboardComponent {
     }, 1000);
 
     this.getDetails();
+    // window.location.reload()
   }
 
   adddetails(){
     this.router.navigate(['/students']);
+    window.location.reload()
   }
 
   getDetails() {
@@ -43,6 +45,36 @@ export class DashboardComponent {
         this.student = data;
         // var localDetails : string [] = [];
       })
+  }
+
+  getEvent() {
+
+    this.appService
+      // .getEventList(localStorage.getItem('token'))
+      // .pipe(takeUntil(this.destroy$))
+      // .subscribe((data) => {
+      //   console.log("EP id::", data);
+      //   // @ts-ignore
+      //   this.eventPlaceDetails = data;
+      //   // this.filteredEventPlaceDetails = this.eventPlaceDetails;
+      //   console.log("eventbookinglist::",this.eventPlaceDetails)
+      //   var localUser: EventPlaceBooking [] = []
+      //   for(var event of this.eventPlaceDetails){
+      //     if(event.activeyn == "Yes"){
+      //     localUser.push(event)
+      //     this.bookingDetails = localUser
+      //     }
+      //   }
+      //   this.filteredEventPlaceDetails = localUser.sort((a,b) => {
+      //     const idA = parseInt(a.eventid.split('-')[1]);
+      //     const idB = parseInt(b.eventid.split('-')[1]);
+
+          // Compare the numeric IDs in descending order
+      //     return idB - idA;
+      //   })
+
+      // })
+
   }
 
 }

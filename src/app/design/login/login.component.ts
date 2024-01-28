@@ -7,6 +7,7 @@ import { AppService } from 'src/app/service/app.service';
 import { Login } from '../model/login';
 import { Subject, takeUntil } from 'rxjs';
 import { Register } from '../model/register';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-login',
@@ -83,7 +84,6 @@ export class LoginComponent {
              else {
               this.toastr.error("Login Credentisls is incorrect")
               this.login.reset();
-              console.log("kjkjk")
             }
           }
         }
@@ -106,10 +106,14 @@ export class LoginComponent {
           if (this.customer && this.customer.length > 0) {
             this.router.navigate(['/dash']);
             this.toastr.success("Login successful");
+            this.successAlert();
           } else {
             this.toastr.error("Login Credentials are incorrect");
             this.login.reset();
             console.log("Incorrect credentials");
+            this.errorAlert();
+            
+
           }
         },
         (err: any) => {
@@ -127,6 +131,47 @@ export class LoginComponent {
   togglePasswordVisibility() {
     this.isPasswordVisible = !this.isPasswordVisible;
 }
+
+errorAlert() {
+  Swal.fire({
+    title: "Something Went Wrong",
+    icon: "error",
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "OK",
+    showClass: {
+      popup: "animate_animated animate_fadeInDown",
+    },
+    hideClass: {
+      popup: "animate_animated animate_fadeOutUp",
+    },
+  }).then((result) =>{
+    if(result.isConfirmed) {
+      window.location.reload()
+    }
+  });
+}
+
+successAlert() {
+  Swal.fire({
+    title: "Save Successfully",
+    icon: "success",
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "OK",
+    showClass: {
+      popup: "animate_animated animate_fadeInDown",
+    },
+    hideClass: {
+      popup: "animate_animated animate_fadeOutUp",
+    },
+  }).then((result) =>{
+    if(result.isConfirmed) {
+      window.location.reload()
+    }
+  });
+}
+
 
 // getLogin(){
 //   this.appService.getLoginId(this.login.get('userName').value,this.login.get('passWord').value)

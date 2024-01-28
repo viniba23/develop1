@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Subject, takeUntil } from 'rxjs';
 import { AppService } from 'src/app/service/app.service';
 import { Register } from '../model/register';
+import Swal from "sweetalert2";
 
 
 @Component({
@@ -129,7 +130,6 @@ export class RegisterComponent {
         this.spinner.show()
       console.log("saved");
       // this.spinner.show();
-      this.toastr.success("Saved successfully");
       this.spinner.show();
       this.router.navigate(['/'])
       console.log("SAVE DETAILS");
@@ -142,6 +142,7 @@ export class RegisterComponent {
         console.log("Details", data);
         // @ts-ignore
         this.customer=data;
+        this.errorAlert();
       })
     }
 
@@ -161,6 +162,26 @@ export class RegisterComponent {
       this.getEPUserDetails = data
     },(err: any) =>{
     },() => console.log("HTTP request completed"))
+  }
+
+  errorAlert() {
+    Swal.fire({
+      title: "Something Went Wrong",
+      icon: "error",
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "OK",
+      showClass: {
+        popup: "animate_animated animate_fadeInDown",
+      },
+      hideClass: {
+        popup: "animate_animated animate_fadeOutUp",
+      },
+    }).then((result) =>{
+      if(result.isConfirmed) {
+        window.location.reload()
+      }
+    });
   }
 
 }
