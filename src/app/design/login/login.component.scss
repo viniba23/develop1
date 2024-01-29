@@ -1,16 +1,23 @@
-.container-fluid {
+.container-fluid  {
     height: 100vh;
     background: url('../../../assets/images/img.avif');
     background-repeat: no-repeat;
     background-size: cover; 
     align-items: center;
-    min-height: auto;
-    background: rgba(0, 0, 0, 0.5);
+    min-height: auto;   
+    // opacity: 1;
+    // background: rgba(56, 5, 5, 0.886);
     // backdrop-filter: blur(10px);
     // filter: blur(5px);
-    // filter: grayscale(100%) contrast(70%) brightness(90%);
-
+    // filter: grayscale(50%) contrast(70%) brightness(90%);
 }
+.container-fluid:before {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba(0,0,0,.5);
+    content: ' ';
+  }
+
 
 body {
     height: 100vh;
@@ -25,6 +32,18 @@ body {
     font-family: 'Times New Roman', Times, serif;
 }
 
+hr {
+    height: 5px; 
+    background-color: rgba(255, 255, 255, 1); 
+    border: none; 
+    margin: 20px 0;
+  }
+
+  .head{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+  }
+
 .fas{
     font-size: 25px;
 }
@@ -34,6 +53,44 @@ body {
     border: none;
     // backdrop-filter: blur(10px);
     color: blanchedalmond;
-    border: 2px solid rgba(255,255,255,.2);
+    border: 5px solid rgba(255, 255, 255, 1);
 }
+
+input[type="text"],input[type="password"]{
+  background-color: transparent;
+  color: white;
+  // border-radius: 25px;
+  
+}
+
+.input-group-text{
+  background-color: transparent;
+  // border: 1px;
+  color: white;
+  // border-radius: 25px;
+}
+
+.form-control::placeholder {
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+button{
+  border-radius: 25px;
+  width: 80%;
+  padding: 10px;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+a{
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+label{
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
 

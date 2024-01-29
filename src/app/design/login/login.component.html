@@ -1,12 +1,15 @@
 <div class="container-fluid">
-    <form [formGroup]="login" (ngSubmit)="onSubmit()">
+    <form [formGroup]="login" (ngSubmit)="onSubmit()" class="h-100">
         <div class="row justify-content-center align-items-center h-100">
-            <div class="col-md-4 p-3 mt-5 ">
+            <div class="col-md-4">
                 <div class="card ngmt-5">
                     <div class="card-body">
                         <div class="row" >
-                            <div class="col-md-12 mb-3 text-center">
-                                <h1>Login</h1>                                                      
+                            <div class="col-md-12 text-center">
+                                <h1 class="head">Students Details Management System <hr ></h1>                                                      
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <h2>Login</h2>                                                      
                             </div>
                             <div class="col-md-12 ">                                    
                                 <label class="form-label">User Name <strong>:</strong></label>
@@ -16,7 +19,7 @@
                             <div class="col-md-12 mt-4">
                                 <label class="form-label">Password <strong>:</strong></label>
                                 <div class="input-group">
-                                    <input [type]="isPasswordVisible ? 'text' :'passWord'" class="form-control"  formControlName="confirmPassword"#passwordInput/>
+                                    <input [type]="isPasswordVisible ? 'text' :'passWord'" class="form-control"  placeholder="Enter Valid Password" formControlName="confirmPassword"#passwordInput/>
                                     <div class="input-group-append">
                                         <span class="input-group-text" (click)="togglePasswordVisibility()">
                                             <i class="fas" [ngClass]="{'fa-eye-slash': !isPasswordVisible, 'fa-eye': isPasswordVisible}"></i>
@@ -27,11 +30,11 @@
                             </div>          
                         </div>                                                           
                         <div class="row mt-3">
-                            <div class="col-md-12 text-center py-4">
+                            <div class="col-md-12 text-center mt-3">
                                 <button type="submit" class="btn btn-success">Save</button>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mt-3">
                             <div class="col-md-12 text-center text-primary ">
                                 <a (click)="register()" style="cursor: pointer;"><strong> New Register</strong> </a>
                             </div>

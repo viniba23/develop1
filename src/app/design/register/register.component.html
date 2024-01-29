@@ -178,18 +178,18 @@
  <!-- </div> -->
 
  <div class="container-fluid">
-    <form [formGroup]="signup" (ngSubmit)="onSubmit()">
+    <form [formGroup]="signup" (ngSubmit)="onSubmit()" class="h-100">
         <div class="row justify-content-center align-items-center h-100 ">
             <div class="col-md-5 mt-5">
                 <div class="card ngmt-5">
                     <div class="card-body">
                         <div class="row" >
                             <div class="col-md-12 text-center">
-                                <h4>Sign Up<hr></h4>                                                      
+                                <h4>Register Form<hr></h4>                                                      
                             </div>
                             <div class="col-md-12 ">                                    
                                 <label class="form-label">First Name <strong>:</strong><span style="color:red;">*</span></label>
-                                <input type="text" class="form-control  " formControlName="firstName" placeholder="Enter the FirstName"> 
+                                <input type="text" class="form-control" formControlName="firstName" placeholder="Enter the FirstName"> 
                                 <span *ngIf="signupError.firstName" class="error-text">{{signupError.firstName}}</span>                                    
                             </div>
                             <div class="col-md-12 mt-3">                                    

@@ -27,7 +27,6 @@ export class DashboardComponent {
     }, 1000);
 
     this.getDetails();
-    // window.location.reload()
   }
 
   adddetails(){
